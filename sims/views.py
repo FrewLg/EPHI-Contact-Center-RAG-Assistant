@@ -13,8 +13,8 @@ from django.conf import settings
 from django.core.cache import cache  # simple rate-limiting with cache
 
 
-FHIR_API_URL = 'https://your-fhir-server.com/fhir/Patient'  # Replace with actual endpoint
-FHIR_API_TOKEN = 'your-auth-token'  # Optional if public or local
+# FHIR_API_URL = 'https://your-fhir-server.com/fhir/Patient'  # Replace with actual endpoint
+# FHIR_API_TOKEN = 'your-auth-token'  # Optional if public or local
 
 PHI_PATTERNS = [
     r"\b\d{3}-\d{2}-\d{4}\b",  # SSN pattern
