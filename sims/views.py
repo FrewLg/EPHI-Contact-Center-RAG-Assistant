@@ -4,18 +4,55 @@ from .models import Plan
 from .forms import PlanForm
 
 import os, time, json, re
-from django.shortcuts import render
+
 from django.http import JsonResponse, HttpResponseBadRequest
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 from .forms import ChatForm 
+# from .models import ChatSession, Message
+# from .utils import generate_response
+
 from django.conf import settings
 from django.core.cache import cache  # simple rate-limiting with cache
 
-
+ 
 # FHIR_API_URL = 'https://your-fhir-server.com/fhir/Patient'  # Replace with actual endpoint
 # FHIR_API_TOKEN = 'your-auth-token'  # Optional if public or local
+############
 
+
+# def new_chat(request):
+#     session = ChatSession.objects.create()
+#     return redirect('healthchat:chat', id=str(session.id))
+
+
+# def chat_view(request, id):
+#     session = get_object_or_404(ChatSession, id=id)
+
+#     if request.method == 'POST':
+#         form = ChatForm(request.POST)
+#         if form.is_valid():
+#             user_input = form.cleaned_data['user_input']
+
+#             recent_messages = session.messages.order_by('-created')[:3][::-1]
+#             ai_response = generate_response(user_input, recent_messages)
+
+#             Message.objects.create(session=session, sender='human', text=user_input)
+#             Message.objects.create(session=session, sender='ai', text=ai_response)
+
+#             return redirect('chats:chat', id=session.id)
+
+#     else:
+#         form = ChatForm()
+
+#     chat_history = session.messages.order_by('created')
+
+#     return render(request, 'healthchat/chat.html', {
+#         'form': form,
+#         'chat_history': chat_history,
+#         'session': session,
+#     })
+# ?############
 PHI_PATTERNS = [
     r"\b\d{3}-\d{2}-\d{4}\b",  # SSN pattern
     r"\b\d{3} \d{2} \d{4}\b",

@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+# from .views import home, chat_view, new_chat
 from sims import views
 # from .views import send_patient
 
@@ -31,11 +32,8 @@ urlpatterns = [
     # path('send-patient/', send_patient, name='send_patient'),
     path("chat/", views.chat_page, name="chat_page"),
     path("api/message/", views.message_proxy, name="message_proxy"),
-    # path("", include("chatbot.urls")),
-# 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
-# ephi_llm
-
-# pip install -U transformers
+    # path('chat/', new_chat, name='new_chat'),
+    # path('<str:id>/', chat_view, name='chat'),
 
 ]
 
