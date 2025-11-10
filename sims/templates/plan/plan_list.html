@@ -1,0 +1,18 @@
+
+
+{% extends 'base.html' %}
+{% block title %}Plan List{% endblock %}
+{% block content %}
+{% for plan in plans %}
+  <div class="card mb-2">
+    <div class="card-body">
+      <h5>{{ plan.name }}</h5>
+      <p>{{ plan.description }}</p>
+      <a href="{% url 'plan_update' plan.id %}" class="btn btn-primary">Edit</a>
+      <a href="{% url 'plan_delete' plan.id %}" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+{% endfor %}
+<a href="{% url 'plan_create' %}" class="btn btn-success">Add New Plan</a>
+
+{% endblock %}
